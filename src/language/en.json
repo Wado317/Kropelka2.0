@@ -1,0 +1,109 @@
+{
+  "welcomeScreen": {
+    "welcome": "Your blood saves lives.",
+    "welcome1": "Thank you for everything.",
+    "welcome2": "Kropelka will help you with blood donations.",
+    "logIn": "Sign in",
+    "register": "Sign up"
+  },
+  "registerScreen": {
+    "header": "Registration",
+    "email": "Email adress",
+    "name": "Your name",
+    "password": "Enter password",
+    "repeatPassword": "Repeat password",
+    "enterEmail": "Enter your email...",
+    "enterName": "Enter your name...",
+    "enterPassword": "Enter your password...",
+    "enterRepeatPassword": "Repeat your password...",
+    "repeatValidation": "Password repetead incorrectly",
+    "validation": "Wrong email adress",
+    "createAccount": "Create account!"
+  },
+  "loginScreen": {
+    "header": "Logging in",
+    "email": "Email adress",
+    "password": "Enter password",
+    "enterEmail": "Enter your email...",
+    "enterPassword": "Enter your password...",
+    "forgotPassword": "Forgot Password?",
+    "validation": "Wrong email adress",
+    "logIn": "Sign in!"
+  },
+  "forgotPasswordScreen": {
+    "header": "Password reset",
+    "email": "Email adress",
+    "enterEmail": "Enter your email...",
+    "resetPassword": "Reset password!",
+    "validation": "Wrong email adress"
+  },
+  "changeLanguageScreen": {
+    "header": "Choose language"
+  },
+  "mainScreen": {
+    "devices": "Your devices",
+    "add" : "Add +",
+    "device": "Device",
+    "room": "Room",
+    "enterDevice": "Enter device name...",
+    "enterRoom": "Enter room name...",
+    "modalHeader": "Add new device!",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "placeholder": "Add your first device!",
+    "delete" : "Delete device",
+    "confirmation": "Are you sure?",
+    "yes": "Yes",
+    "editHeader": "Edit device"
+  },
+  "userScreen": {
+    "welcome": "Hello Kamil!",
+    "settings": "Settings",
+    "language": "Language",
+    "share": "Share",
+    "logOut": "Log out"
+  },
+  "accountSettingsScreen": {
+    "settings": "Settings",
+    "changeEmail": "Change email",
+    "changePassword": "Change password",
+    "changeName": "Change name",
+    "deleteAccount": "Delete account"
+  },
+  "changeEmailScreen": {
+    "header": "Changing email",
+    "oldEmail": "Old email adress",
+    "email": "New email adress",
+    "enterOldEmail": "Enter your old email...",
+    "enterEmail": "Enter your new email...",
+    "validation": "Wrong email adress",
+    "change": "Change email!"
+  },
+  "changePasswordScreen": {
+    "header": "Changing password",
+    "password": "Old password",
+    "newPassword": "New password",
+    "repeatNewPassword": "Repeated new password",
+    "enterPassword": "Enter old password...",
+    "enterNewPassword": "Enter new password...",
+    "enterRepeatedNewPassword": "Repeat new password...",
+    "validation": "We need 8 letters, capital letter and number.",
+    "repeatValidation": "Password repetead incorrectly",
+    "change": "Change password!"
+  },
+  "changeNameScreen": {
+    "header": "Changing name",
+    "name": "Your name",
+    "enterName": "Enter your name...",
+    "change": "Change name!"
+  },
+  "deleteAccountScreen": {
+    "header": "Deleting account",
+    "email": "Email adress",
+    "password": "Enter password",
+    "enterEmail": "Enter your email...",
+    "enterPassword": "Enter your password...",
+    "validation": "Wrong email adress",
+    "delete": "Delete account!"
+  }
+}

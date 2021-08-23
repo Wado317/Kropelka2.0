@@ -8,6 +8,7 @@ import {Routes} from './src/const/routes';
 
 import WelcomeScreen from './src/screens/WelcomeScreen/WelcomeScreen';
 import SplashScreen from './src/screens/SplashScreen/SplashScreen';
+import ChangeLanguageScreen from './src/screens/ChangeLanguageScreen/ChangeLanguageScreen';
 // import useLanguage from './src/language/hooks/useLanguage';
 // import './src/language';
 
@@ -31,6 +32,11 @@ const AppConnected = () => {
         <AppStack.Screen
           component={WelcomeScreen}
           name={Routes.WelcomeScreen}
+          options={{headerShown: false, gestureEnabled: false}}
+        />
+        <AppStack.Screen
+          component={ChangeLanguageScreen}
+          name={Routes.ChangeLanguageScreen}
           options={{headerShown: false, gestureEnabled: false}}
         />
       </AppStack.Navigator>

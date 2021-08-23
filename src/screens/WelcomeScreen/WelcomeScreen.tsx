@@ -4,9 +4,12 @@ import {colors} from '../../const/colors';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../const/routes';
 import {NavButton} from '../../components/Buttons/NavButton';
+import ChangeLanguageIcon from '../../language/components/ChangeLanguageIcon';
+import {useTranslation} from 'react-i18next';
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
 
   // const goToLoginScreen = () => {
   //   navigation.navigate(Routes.LoginScreen);
@@ -16,6 +19,10 @@ const WelcomeScreen = () => {
   //   navigation.navigate(Routes.RegisterInfoScreen);
   // };
 
+  const goToChangeLanguageScreen = () => {
+    navigation.navigate(Routes.ChangeLanguageScreen);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.mainContainer}>
@@ -24,19 +31,18 @@ const WelcomeScreen = () => {
           style={styles.logo}
         />
         <View style={styles.textContainer}>
-          <Text style={styles.text}>Twoja krew ratuje życie.</Text>
-          <Text style={styles.text}>Dziękujemy, że jesteś.</Text>
-          <Text style={styles.text}>
-            Kropelka ułatwi Ci korzystanie z usług krwiodawstwa.
-          </Text>
+          <Text style={styles.text}>{t('welcomeScreen.welcome')}</Text>
+          <Text style={styles.text}>{t('welcomeScreen.welcome1')}</Text>
+          <Text style={styles.text}>{t('welcomeScreen.welcome2')}</Text>
         </View>
         <View style={styles.buttonContainer}>
+          <ChangeLanguageIcon onPress={goToChangeLanguageScreen} />
           <NavButton
-            label={'Rejestracja'}
+            label={t('welcomeScreen.register')}
             onPress={() => console.warn('hehe')}
           />
           <NavButton
-            label={'Logowanie'}
+            label={t('welcomeScreen.logIn')}
             onPress={() => console.warn('hehe')}
             variant={'secondary'}
           />
@@ -75,7 +81,7 @@ const styles = StyleSheet.create({
     borderColor: colors.danger,
     borderWidth: 1,
     borderRadius: 35,
-    marginHorizontal: 10,
+    marginHorizontal: 40,
     paddingHorizontal: 15,
     paddingVertical: 30,
     marginBottom: 50,

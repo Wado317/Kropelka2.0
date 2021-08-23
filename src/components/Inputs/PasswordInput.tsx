@@ -46,15 +46,16 @@ const styles = StyleSheet.create({
   },
   input: {
     flexDirection: 'row',
-    width: 225,
+    width: 245,
     borderBottomWidth: 3,
     borderColor: colors.danger,
     paddingBottom: 5,
   },
   title: {
     fontSize: 20,
-    fontFamily: 'BalooTammudu2-Bold',
+    fontFamily: 'BreeSerif-Regular',
     color: colors.danger,
+    marginBottom: 20,
   },
   icon: {
     position: 'absolute',

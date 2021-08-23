@@ -11,13 +11,13 @@ const WelcomeScreen = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
 
-  // const goToLoginScreen = () => {
-  //   navigation.navigate(Routes.LoginScreen);
-  // };
+  const goToLoginScreen = () => {
+    navigation.navigate(Routes.LoginScreen);
+  };
 
-  // const goToRegisterScreen = () => {
-  //   navigation.navigate(Routes.RegisterInfoScreen);
-  // };
+  const goToRegisterScreen = () => {
+    navigation.navigate(Routes.RegisterScreen);
+  };
 
   const goToChangeLanguageScreen = () => {
     navigation.navigate(Routes.ChangeLanguageScreen);
@@ -39,11 +39,11 @@ const WelcomeScreen = () => {
           <ChangeLanguageIcon onPress={goToChangeLanguageScreen} />
           <NavButton
             label={t('welcomeScreen.register')}
-            onPress={() => console.warn('hehe')}
+            onPress={goToRegisterScreen}
           />
           <NavButton
             label={t('welcomeScreen.logIn')}
-            onPress={() => console.warn('hehe')}
+            onPress={goToLoginScreen}
             variant={'secondary'}
           />
         </View>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     marginHorizontal: 40,
     paddingHorizontal: 15,
-    paddingVertical: 30,
+    paddingVertical: 25,
     marginBottom: 50,
     //shadow
     shadowColor: colors.black,

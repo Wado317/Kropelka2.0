@@ -1,12 +1,9 @@
 import React, {useCallback, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 
 import {colors} from '../../const/colors';
 import {UniversalInput} from '../../components/Inputs/Input';
-import {PasswordInput} from '../../components/Inputs/PasswordInput';
 import {NavButton} from '../../components/Buttons/NavButton';
 import {BackButton} from '../../components/BackButton/BackButton';
-import {Routes} from '../../const/routes';
 import TextValidator from '../../helpers/validators';
 
 import {
@@ -14,7 +11,6 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
@@ -30,17 +26,11 @@ const DismissKeyboard = ({children}: Props) => (
   </TouchableWithoutFeedback>
 );
 
-const LoginScreen = () => {
+const ForgotPasswordScreen = () => {
   const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
   const [emailError, setEmailError] = useState<string>('');
 
-  const navigation = useNavigation();
   const {t} = useTranslation();
-
-  const goToForgotPasswordScreen = () => {
-    navigation.navigate(Routes.ForgotPasswordScreen);
-  };
 
   // const inputHandler = useCallback(
   //   (handler: any) => (value: string): void => {
@@ -63,7 +53,7 @@ const LoginScreen = () => {
       return;
     }
     try {
-      console.warn(password, email);
+      console.warn(email);
     } catch (error) {
       console.warn(error);
     }
@@ -74,33 +64,23 @@ const LoginScreen = () => {
       <SafeAreaView style={styles.container}>
         <BackButton />
         <View style={styles.titleContainer}>
-          <Text style={styles.headerText}>{t('loginScreen.header')}</Text>
+          <Text style={styles.headerText}>
+            {t('forgotPasswordScreen.header')}
+          </Text>
         </View>
         <View style={styles.cloud}>
           <View style={styles.inputContainer}>
             <UniversalInput
-              label={t('loginScreen.email')}
-              placeholder={t('loginScreen.enterEmail')}
+              label={t('forgotPasswordScreen.email')}
+              placeholder={t('forgotPasswordScreen.enterEmail')}
               onChangeText={setEmail}
               autoCapitize={true}
             />
             <Text style={styles.errorText}>{emailError}</Text>
-            <PasswordInput
-              label={t('loginScreen.password')}
-              placeholder={t('loginScreen.enterPassword')}
-              onChangeText={setPassword}
-            />
-            <TouchableOpacity
-              style={styles.forgotPassword}
-              onPress={goToForgotPasswordScreen}>
-              <Text style={styles.forgotPasswordText}>
-                {t('loginScreen.forgotPassword')}
-              </Text>
-            </TouchableOpacity>
           </View>
           <View style={styles.buttonContainer}>
             <NavButton
-              label={t('loginScreen.logIn')}
+              label={t('forgotPasswordScreen.resetPassword')}
               onPress={validate}
               variant="primary"
             />
@@ -118,28 +98,34 @@ const styles = StyleSheet.create({
     backgroundColor: colors.danger,
   },
   titleContainer: {
-    flex: 1,
+    flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 30,
+  },
+  logo: {
+    marginTop: 10,
+    height: 80,
+    width: 80,
   },
   headerText: {
     padding: 10,
     fontFamily: 'BreeSerif-Regular',
     fontSize: 60,
     color: colors.white,
+    textAlign: 'center',
     textShadowColor: colors.black,
     textShadowOffset: {height: -1, width: 1},
     textShadowRadius: 1,
   },
   cloud: {
-    flex: 0,
-    width: '100%',
     height: 600,
+    width: '100%',
+    borderRadius: 50,
     alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: 70,
     backgroundColor: colors.white,
     bottom: -50,
-    borderRadius: 50,
   },
   inputContainer: {
     marginBottom: 20,
@@ -147,18 +133,18 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 100,
   },
   forgotPassword: {
     alignItems: 'center',
   },
   forgotPasswordText: {
-    color: colors.danger,
+    color: colors.mediumBlue,
   },
   errorText: {
     color: colors.red,
-    fontSize: 10,
+    fontSize: 12,
   },
 });
 
-export default LoginScreen;
+export default ForgotPasswordScreen;

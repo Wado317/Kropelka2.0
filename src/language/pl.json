@@ -29,7 +29,7 @@
     "enterPassword": "Wpisz swoje hasło...",
     "forgotPassword": "Zapomniałeś hasła?",
     "validation": "Niepoprawny adres email",
-    "logIn": "Zaloguj się!"
+    "logIn": "Zaloguj sie!"
   },
   "forgotPasswordScreen": {
     "header": "Resetowanie hasła",

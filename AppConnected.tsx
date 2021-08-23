@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import 'react-native-gesture-handler';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -9,17 +9,21 @@ import {Routes} from './src/const/routes';
 import WelcomeScreen from './src/screens/WelcomeScreen/WelcomeScreen';
 import SplashScreen from './src/screens/SplashScreen/SplashScreen';
 import ChangeLanguageScreen from './src/screens/ChangeLanguageScreen/ChangeLanguageScreen';
-// import useLanguage from './src/language/hooks/useLanguage';
-// import './src/language';
+import LoginScreen from './src/screens/LoginScreen/LoginScreen';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen/ForgotPasswordScreen';
+import RegisterScreen from './src/screens/RegisterScreen/RegisterScreen';
+
+import useLanguage from './src/language/hooks/useLanguage';
+import './src/language';
 
 const AppStack = createStackNavigator();
 
 const AppConnected = () => {
-  // const {loadAppLanguage} = useLanguage();
+  const {loadAppLanguage} = useLanguage();
 
-  // useEffect(() => {
-  //   loadAppLanguage();
-  // }, []);
+  useEffect(() => {
+    loadAppLanguage();
+  }, [loadAppLanguage]);
 
   return (
     <NavigationContainer>
@@ -37,6 +41,21 @@ const AppConnected = () => {
         <AppStack.Screen
           component={ChangeLanguageScreen}
           name={Routes.ChangeLanguageScreen}
+          options={{headerShown: false, gestureEnabled: false}}
+        />
+        <AppStack.Screen
+          component={LoginScreen}
+          name={Routes.LoginScreen}
+          options={{headerShown: false, gestureEnabled: false}}
+        />
+        <AppStack.Screen
+          component={ForgotPasswordScreen}
+          name={Routes.ForgotPasswordScreen}
+          options={{headerShown: false, gestureEnabled: false}}
+        />
+        <AppStack.Screen
+          component={RegisterScreen}
+          name={Routes.RegisterScreen}
           options={{headerShown: false, gestureEnabled: false}}
         />
       </AppStack.Navigator>

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const STORAGE_PREFIX = 'owl';
+const STORAGE_PREFIX = 'kropelka';
 
 async function getItem(key: string, defaultValue: any = null): Promise<any> {
   let value: any;

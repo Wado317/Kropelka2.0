@@ -11,9 +11,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		17DDCB191ADA4A348D4F8F85 /* BreeSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8B1A6F59CD4E68BA4A6915 /* BreeSerif-Regular.ttf */; };
 		53747CDD7E500E306325014C /* libPods-KropelkaApp-KropelkaAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E14A81CA332F0B564E5DE4BB /* libPods-KropelkaApp-KropelkaAppTests.a */; };
+		575F881A1A444D8296044AB4 /* FredokaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24EAC32A56334B9ABA2C5C2A /* FredokaOne-Regular.ttf */; };
 		78F18DFC763E145A0B7323D7 /* libPods-KropelkaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA777BB784C5BF579D726037 /* libPods-KropelkaApp.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C099701547F444A688CBE4E2 /* ConcertOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE3B6C63AECB4EFD849BD177 /* ConcertOne-Regular.ttf */; };
+		CD19F8EBF439453891191639 /* RampartOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AC90BD277F4C89BD8F1B93 /* RampartOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,18 +34,22 @@
 		00E356EE1AD99517003FC87E /* KropelkaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KropelkaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* KropelkaAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KropelkaAppTests.m; sourceTree = "<group>"; };
+		09AC90BD277F4C89BD8F1B93 /* RampartOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "RampartOne-Regular.ttf"; path = "../assets/fonts/RampartOne-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* KropelkaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KropelkaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = KropelkaApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = KropelkaApp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KropelkaApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = KropelkaApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = KropelkaApp/main.m; sourceTree = "<group>"; };
+		24EAC32A56334B9ABA2C5C2A /* FredokaOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "FredokaOne-Regular.ttf"; path = "../assets/fonts/FredokaOne-Regular.ttf"; sourceTree = "<group>"; };
 		343F5148BBFC406F3DF14831 /* Pods-KropelkaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KropelkaApp.debug.xcconfig"; path = "Target Support Files/Pods-KropelkaApp/Pods-KropelkaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		533FBDAE6695270E48752FA1 /* Pods-KropelkaApp-KropelkaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KropelkaApp-KropelkaAppTests.release.xcconfig"; path = "Target Support Files/Pods-KropelkaApp-KropelkaAppTests/Pods-KropelkaApp-KropelkaAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		599B199020D7793DBA8F2CD2 /* Pods-KropelkaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KropelkaApp.release.xcconfig"; path = "Target Support Files/Pods-KropelkaApp/Pods-KropelkaApp.release.xcconfig"; sourceTree = "<group>"; };
+		5B8B1A6F59CD4E68BA4A6915 /* BreeSerif-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BreeSerif-Regular.ttf"; path = "../assets/fonts/BreeSerif-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = KropelkaApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A004A335F80826B2A4D833D5 /* Pods-KropelkaApp-KropelkaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KropelkaApp-KropelkaAppTests.debug.xcconfig"; path = "Target Support Files/Pods-KropelkaApp-KropelkaAppTests/Pods-KropelkaApp-KropelkaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA777BB784C5BF579D726037 /* libPods-KropelkaApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KropelkaApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE3B6C63AECB4EFD849BD177 /* ConcertOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ConcertOne-Regular.ttf"; path = "../assets/fonts/ConcertOne-Regular.ttf"; sourceTree = "<group>"; };
 		E14A81CA332F0B564E5DE4BB /* libPods-KropelkaApp-KropelkaAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KropelkaApp-KropelkaAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -122,6 +130,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E82FEDFFAE9C32C588B2ACC7 /* Pods */,
+				8C4FD7597B2940D588ED0E50 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +144,18 @@
 				00E356EE1AD99517003FC87E /* KropelkaAppTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8C4FD7597B2940D588ED0E50 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				09AC90BD277F4C89BD8F1B93 /* RampartOne-Regular.ttf */,
+				24EAC32A56334B9ABA2C5C2A /* FredokaOne-Regular.ttf */,
+				BE3B6C63AECB4EFD849BD177 /* ConcertOne-Regular.ttf */,
+				5B8B1A6F59CD4E68BA4A6915 /* BreeSerif-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		E82FEDFFAE9C32C588B2ACC7 /* Pods */ = {
@@ -243,6 +264,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CD19F8EBF439453891191639 /* RampartOne-Regular.ttf in Resources */,
+				575F881A1A444D8296044AB4 /* FredokaOne-Regular.ttf in Resources */,
+				C099701547F444A688CBE4E2 /* ConcertOne-Regular.ttf in Resources */,
+				17DDCB191ADA4A348D4F8F85 /* BreeSerif-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

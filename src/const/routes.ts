@@ -1,0 +1,16 @@
+export enum Routes {
+  SplashScreen = 'SplashScreen',
+  WelcomeScreen = 'WelcomeScreen',
+  LoggedInStack = 'LoggedInStack',
+  HomeScreen = 'HomeScreen',
+  LoginScreen = 'LoginScreen',
+  RegisterScreen = 'RegisterScreen',
+  RegisterInfoScreen = 'RegisterInfoScreen',
+  ForgotPasswordScreen = 'ForgotPasswordScreen',
+  UserScreen = 'UserScreen',
+  AccSettingsScreen = 'AccSettingsScreen',
+  ChangePasswordScreen = 'ChangePasswordScreen',
+  RaportsScreen = 'RaportsScreen',
+  MainScreen = 'MainScreen',
+  SettingsStack = 'SettingsStack',
+}

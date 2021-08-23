@@ -15,9 +15,9 @@ const WelcomeScreen = () => {
     navigation.navigate(Routes.LoginScreen);
   };
 
-  // const goToRegisterScreen = () => {
-  //   navigation.navigate(Routes.RegisterInfoScreen);
-  // };
+  const goToRegisterScreen = () => {
+    navigation.navigate(Routes.RegisterScreen);
+  };
 
   const goToChangeLanguageScreen = () => {
     navigation.navigate(Routes.ChangeLanguageScreen);
@@ -39,7 +39,7 @@ const WelcomeScreen = () => {
           <ChangeLanguageIcon onPress={goToChangeLanguageScreen} />
           <NavButton
             label={t('welcomeScreen.register')}
-            onPress={() => console.warn('hehe')}
+            onPress={goToRegisterScreen}
           />
           <NavButton
             label={t('welcomeScreen.logIn')}

@@ -11,6 +11,7 @@ import SplashScreen from './src/screens/SplashScreen/SplashScreen';
 import ChangeLanguageScreen from './src/screens/ChangeLanguageScreen/ChangeLanguageScreen';
 import LoginScreen from './src/screens/LoginScreen/LoginScreen';
 import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen/ForgotPasswordScreen';
+import RegisterScreen from './src/screens/RegisterScreen/RegisterScreen';
 
 import useLanguage from './src/language/hooks/useLanguage';
 import './src/language';
@@ -50,6 +51,11 @@ const AppConnected = () => {
         <AppStack.Screen
           component={ForgotPasswordScreen}
           name={Routes.ForgotPasswordScreen}
+          options={{headerShown: false, gestureEnabled: false}}
+        />
+        <AppStack.Screen
+          component={RegisterScreen}
+          name={Routes.RegisterScreen}
           options={{headerShown: false, gestureEnabled: false}}
         />
       </AppStack.Navigator>

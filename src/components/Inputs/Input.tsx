@@ -31,14 +31,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    width: 225,
+    width: 245,
     borderBottomWidth: 3,
     borderColor: colors.danger,
     paddingBottom: 5,
   },
   title: {
-    fontSize: 20,
-    fontFamily: 'BalooTammudu2-Bold',
+    fontSize: 22,
+    fontFamily: 'BreeSerif-Regular',
     color: colors.danger,
+    marginBottom: 20,
   },
 });

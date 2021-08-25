@@ -4,7 +4,8 @@
     "welcome1": "Thank you for everything.",
     "welcome2": "Kropelka will help you with blood donations.",
     "logIn": "Sign in",
-    "register": "Sign up"
+    "register": "Sign up",
+    "guest": "Continue as a guest"
   },
   "registerScreen": {
     "header": "Registration",
@@ -40,21 +41,21 @@
   "changeLanguageScreen": {
     "header": "Choose language"
   },
-  "mainScreen": {
-    "devices": "Your devices",
-    "add" : "Add +",
-    "device": "Device",
-    "room": "Room",
-    "enterDevice": "Enter device name...",
-    "enterRoom": "Enter room name...",
-    "modalHeader": "Add new device!",
+  "homeScreen": {
+    "header": "See you soon in:",
+    "days" : "days",
+    "add": "Add +",
+    "enterDonation": "Enter donation date...",
+    "modalHeader": "Donate!",
     "confirm": "Confirm",
     "cancel": "Cancel",
-    "placeholder": "Add your first device!",
-    "delete" : "Delete device",
+    "placeholder": "Add your first donation!",
+    "delete" : "Delete donation",
     "confirmation": "Are you sure?",
     "yes": "Yes",
-    "editHeader": "Edit device"
+    "editHeader": "Edit donation",
+    "blood": "Blood:",
+    "yourDonations": "Your donations:"
   },
   "userScreen": {
     "welcome": "Hello Kamil!",

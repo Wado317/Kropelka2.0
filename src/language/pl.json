@@ -4,7 +4,8 @@
     "welcome1": "Dziękujemy. że jesteś.",
     "welcome2": "Kropelka ułatwi Ci wizyty w centrum krwiodawstwa.",
     "logIn": "Zaloguj sie",
-    "register": "Rejestracja"
+    "register": "Rejestracja",
+    "guest": "Kontynuuj jako gosc"
     },
   "registerScreen": {
     "header": "Rejestracja",
@@ -41,21 +42,22 @@
   "changeLanguageScreen": {
     "header": "Wybierz język"
   },
-  "mainScreen": {
-    "devices": "Urządzenia",
-    "add" : "Dodaj +",
-    "device": "Urządzenie",
-    "room": "Pomieszczenie",
-    "enterDevice": "Wpisz nazwę urządzenia...",
-    "enterRoom": "Wpisz nazwę pomieszczenia...",
-    "modalHeader": "Dodaj nowe urządzenie!",
-    "confirm": "Potwierdź",
+  "homeScreen": {
+    "header": "Zapraszamy ponownie za:",
+    "days" : "dni",
+    "add": "Dodaj +",
+    "donation": "Data donacji",
+    "enterDonation": "Wpisz datę donacji...",
+    "modalHeader": "Donacja!",
+    "confirm": "Potwiedź",
     "cancel": "Anuluj",
-    "placeholder": "Dodaj swoje pierwsze urządzenie!",
-    "delete" : "Usuń urządzenie",
+    "placeholder": "Dodaj swoją pierwszą donację!",
+    "delete" : "Usuń donację",
     "confirmation": "Jesteś pewny/a?",
     "yes": "Tak",
-    "editHeader": "Edycja urządzenia"
+    "editHeader": "Edycja donacji",
+    "blood": "Krew:",
+    "yourDonations": "Twoje donacje:"
   },
   "userScreen": {
     "welcome": "Cześć Kamil!",

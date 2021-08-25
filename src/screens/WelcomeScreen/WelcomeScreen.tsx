@@ -6,12 +6,17 @@ import {Routes} from '../../const/routes';
 import {NavButton} from '../../components/Buttons/NavButton';
 import ChangeLanguageIcon from '../../language/components/ChangeLanguageIcon';
 import {useTranslation} from 'react-i18next';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
 
   const goToLoginScreen = () => {
+    navigation.navigate(Routes.LoginScreen);
+  };
+
+  const goToHomeHome = () => {
     navigation.navigate(Routes.HomeScreen);
   };
 
@@ -46,6 +51,9 @@ const WelcomeScreen = () => {
             onPress={goToLoginScreen}
             variant={'secondary'}
           />
+          <TouchableOpacity onPress={goToHomeHome}>
+            <Text style={styles.guest}>{t('welcomeScreen.guest')}</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
@@ -68,7 +76,7 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
   },
   text: {
@@ -99,5 +107,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     position: 'absolute',
     bottom: 20,
+  },
+  guest: {
+    color: colors.danger,
+    fontSize: 18,
+    fontFamily: 'BreeSerif-Regular',
+    textAlign: 'center',
+    marginTop: 30,
   },
 });

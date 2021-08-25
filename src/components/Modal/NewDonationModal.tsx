@@ -6,7 +6,6 @@ import {
   Text,
   Pressable,
   View,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
@@ -14,7 +13,7 @@ import {
 import {useDispatch} from 'react-redux';
 import {colors} from '../../const/colors';
 import {createDonation} from '../../store/actions/donationActions';
-import { AddButton } from '../Buttons/AddButton';
+import {AddButton} from '../Buttons/AddButton';
 import {UniversalInput} from '../Inputs/Input';
 
 interface Props {

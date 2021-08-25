@@ -4,7 +4,8 @@
     "welcome1": "Thank you for everything.",
     "welcome2": "Kropelka will help you with blood donations.",
     "logIn": "Sign in",
-    "register": "Sign up"
+    "register": "Sign up",
+    "guest": "Continue as a guest"
   },
   "registerScreen": {
     "header": "Registration",
@@ -45,7 +46,6 @@
     "days" : "days",
     "add": "Add +",
     "enterDonation": "Enter donation date...",
-    "enterRoom": "Enter room name...",
     "modalHeader": "Donate!",
     "confirm": "Confirm",
     "cancel": "Cancel",
@@ -54,7 +54,8 @@
     "confirmation": "Are you sure?",
     "yes": "Yes",
     "editHeader": "Edit donation",
-    "blood": "Blood:"
+    "blood": "Blood:",
+    "yourDonations": "Your donations:"
   },
   "userScreen": {
     "welcome": "Hello Kamil!",

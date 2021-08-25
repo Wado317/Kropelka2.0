@@ -4,7 +4,8 @@
     "welcome1": "Dziękujemy. że jesteś.",
     "welcome2": "Kropelka ułatwi Ci wizyty w centrum krwiodawstwa.",
     "logIn": "Zaloguj sie",
-    "register": "Rejestracja"
+    "register": "Rejestracja",
+    "guest": "Kontynuuj jako gosc"
     },
   "registerScreen": {
     "header": "Rejestracja",
@@ -47,16 +48,16 @@
     "add": "Dodaj +",
     "donation": "Data donacji",
     "enterDonation": "Wpisz datę donacji...",
-    "enterRoom": "Enter room name...",
     "modalHeader": "Donacja!",
     "confirm": "Potwiedź",
     "cancel": "Anuluj",
     "placeholder": "Dodaj swoją pierwszą donację!",
-    "delete" : "Delete donation",
-    "confirmation": "Are you sure?",
-    "yes": "Yes",
-    "editHeader": "Edit donation",
-    "blood": "Krew:"
+    "delete" : "Usuń donację",
+    "confirmation": "Jesteś pewny/a?",
+    "yes": "Tak",
+    "editHeader": "Edycja donacji",
+    "blood": "Krew:",
+    "yourDonations": "Twoje donacje:"
   },
   "userScreen": {
     "welcome": "Cześć Kamil!",

@@ -1,14 +1,23 @@
-import React, {Component, useEffect, useState} from 'react';
-import { useTranslation } from 'react-i18next';
-import {Modal, StyleSheet, Text, Pressable, View, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Alert} from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {
+  Modal,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Alert,
+} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import {colors} from '../../const/colors';
-import { createDevice, editDevice, getDeviceId } from '../../store/actions/deviceActions';
+import {editDonation} from '../../store/actions/donationActions';
 import {UniversalInput} from '../Inputs/Input';
 
 interface Props {
-  children: any
-};
+  children: any;
+}
 
 const DismissKeyboard = ({children}: Props) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -16,83 +25,72 @@ const DismissKeyboard = ({children}: Props) => (
   </TouchableWithoutFeedback>
 );
 
-const EditModal = ({ visible, onClose, onConfirm, isEdit, editedDeviceId }: any) => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [name , setName] = useState<string>('');
-  const [roomName, setRoomName] = useState<string>('');
-  const { t } = useTranslation();
+const EditModal = ({
+  visible,
+  onClose,
+  onConfirm,
+  isEdit,
+  editedDonationId,
+}: any) => {
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [date, setDate] = useState<string>('');
+  const {t} = useTranslation();
   const dispatch = useDispatch();
-  const {devices} = useSelector((state: any) => state.device)
+  const {donations} = useSelector((state: any) => state.donation);
 
-  
   useEffect(() => {
     if (isEdit) {
-      const device = devices.find((item: any) => item.id === editedDeviceId)
-      setName(device.name)
-      setRoomName(device.roomName)
+      const donation = donations.find(
+        (item: any) => item.id === editedDonationId,
+      );
+      setDate(donation.date);
     }
-  }, [isEdit]);  
+  }, [isEdit]);
 
   const submitEditHandler = (id: string) => {
-    if (name.trim() === '' || roomName.trim() === '') {
+    if (date.trim() === '') {
       return Alert.alert('Validation', 'Name is required!');
     }
-    dispatch(
-      editDevice(
-        name,
-        roomName,
-        id,
-        () => Keyboard.dismiss()
-      ),
-    );
+    dispatch(editDonation(date, id, () => Keyboard.dismiss()));
   };
 
   return (
     <DismissKeyboard>
-    <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={visible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>{t('mainScreen.editHeader')}</Text>
-            <View>
-              <UniversalInput 
-                placeholder={t('mainScreen.enterDevice')} 
-                label={t('mainScreen.device')} 
-                onChangeText={val => setName(val)} 
-                value={name}
-              />
+      <View style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={visible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>{t('homeScreen.editHeader')}</Text>
+              <View>
+                <UniversalInput
+                  placeholder={t('homeScreen.enterDonation')}
+                  label={t('homeScreen.donation')}
+                  onChangeText={val => setDate(val)}
+                  value={date}
+                />
+              </View>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => submitEditHandler(editedDonationId)}
+                onPressOut={onConfirm}>
+                <Text style={styles.textStyle}>{t('homeScreen.confirm')}</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.button2, styles.buttonClose2]}
+                onPressOut={onClose}>
+                <Text style={styles.textStyle2}>{t('homeScreen.cancel')}</Text>
+              </Pressable>
             </View>
-            <View>
-              <UniversalInput 
-                placeholder={t('mainScreen.enterRoom')} 
-                label={t('mainScreen.room')} 
-                onChangeText={val => setRoomName(val)}
-                value={roomName}
-              />
-            </View>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => submitEditHandler(editedDeviceId)}
-              onPressOut={onConfirm}>
-              <Text style={styles.textStyle}>{t('mainScreen.confirm')}</Text>
-            </Pressable>
-            <Pressable
-              style={[styles.button2, styles.buttonClose2]}
-              onPressOut={onClose}>
-              <Text style={styles.textStyle2}>{t('mainScreen.cancel')}</Text>
-            </Pressable>
           </View>
-        </View>
-      </Modal>
-    </View>
+        </Modal>
+      </View>
     </DismissKeyboard>
-
   );
 };
 
@@ -134,40 +132,40 @@ const styles = StyleSheet.create({
     width: '65%',
   },
   buttonClose: {
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.danger,
   },
   buttonClose2: {
     backgroundColor: colors.white,
-    borderColor: colors.darkBlue,
+    borderColor: colors.danger,
     borderWidth: 1,
   },
   textStyle: {
     color: colors.white,
-    fontFamily: 'Lobster-Regular',
+    fontFamily: 'BreeSerif-Regular',
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 20,
   },
   textStyle2: {
-    color: colors.darkBlue,
-    fontFamily: 'Lobster-Regular',
+    color: colors.danger,
+    fontFamily: 'BreeSerif-Regular',
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 20,
   },
   modalText: {
     marginBottom: 15,
-    fontFamily: 'Lobster-Regular',
+    fontFamily: 'BreeSerif-Regular',
     textAlign: 'center',
     fontSize: 24,
-    color: colors.darkBlue,
+    color: colors.danger,
   },
-    addButton: {
+  addButton: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: colors.darkBlue,
+    borderColor: colors.danger,
     borderRadius: 30,
     height: 45,
     width: 110,
@@ -184,13 +182,13 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   buttonPlus: {
-    fontFamily: 'Lobster-Regular',
+    fontFamily: 'BreeSerif-Regular',
     fontSize: 20,
-    color: colors.darkBlue,
+    color: colors.danger,
     textShadowColor: colors.black,
     textShadowOffset: {height: -1, width: 1},
-    textShadowRadius: 1
-  }
+    textShadowRadius: 1,
+  },
 });
 
 export default EditModal;

@@ -9,25 +9,25 @@ import {
   View,
 } from 'react-native';
 import {colors} from '../../const/colors';
-import {useNavigation} from '@react-navigation/native';
-import {Routes} from '../../const/routes';
 import {useTranslation} from 'react-i18next';
 import NewDonationModal from '../../components/Modal/NewDonationModal';
 import {useDispatch, useSelector} from 'react-redux';
-import {deleteDonation, getDonations} from '../../store/actions/donationActions';
+import {
+  deleteDonation,
+  getDonations,
+} from '../../store/actions/donationActions';
 import Swipeout from 'react-native-swipeout';
 import Cross from '../../components/Icons/Cross';
 import Pen from '../../components/Icons/Pen';
+import EditModal from '../../components/Modal/EditModal';
 
 const HomeScreen = () => {
-  const [isEnabled, setIsEnabled] = useState<boolean>(false);
   const [isEdit, setIsEdit] = useState<boolean>(false);
-  const [editedDeviceId, setEditedDeviceId] = useState<string | undefined>(
+  const [editedDonationId, setEditedDonationId] = useState<string | undefined>(
     undefined,
   );
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
-  const navigation = useNavigation();
   const {t} = useTranslation();
   const dispatch = useDispatch();
   const {donations} = useSelector((state: any) => state.donation);
@@ -47,14 +47,14 @@ const HomeScreen = () => {
   };
 
   const createTwoButtonAlert = (id: string) =>
-    Alert.alert(t('mainScreen.delete'), t('mainScreen.confirmation'), [
+    Alert.alert(t('homeScreen.delete'), t('homeScreen.confirmation'), [
       {
-        text: t('mainScreen.yes'),
+        text: t('homeScreen.yes'),
         onPress: () => deleteDonationHandler(id),
         style: 'default',
       },
       {
-        text: t('mainScreen.cancel'),
+        text: t('homeScreen.cancel'),
         onPress: () => console.log('Cancel Pressed'),
         style: 'destructive',
       },
@@ -79,7 +79,7 @@ const HomeScreen = () => {
         ),
         backgroundColor: colors.white,
         onPress: () => {
-          setEditedDeviceId(id);
+          setEditedDonationId(id);
           openEditModal();
         },
       },
@@ -91,7 +91,7 @@ const HomeScreen = () => {
       right={getSwipeoutBtns(item.id)}
       style={styles.swipeout}
       autoClose={true}>
-      <View style={styles.newDeviceContainer}>
+      <View style={styles.newDonationContainer}>
         <Text style={styles.topic}>{item.date}</Text>
         <Text style={styles.topic}>{t('homeScreen.blood')} 450 ml</Text>
       </View>
@@ -116,9 +116,9 @@ const HomeScreen = () => {
         <Text style={styles.date}>23-02-2021</Text>
       </View>
       <View style={styles.visitsContainer}>
-        <Text style={styles.visits}>Twoje donacje:</Text>
+        <Text style={styles.visits}>{t('homeScreen.yourDonations')}</Text>
       </View>
-      <View style={styles.devicesContainer}>
+      <View style={styles.donationsContainer}>
         {donations.length > 0 ? (
           <FlatList
             keyExtractor={item => item.id}
@@ -136,6 +136,20 @@ const HomeScreen = () => {
             />
           </View>
         )}
+        <EditModal
+          visible={modalVisible}
+          onClose={() => {
+            setModalVisible(false);
+            setIsEdit(false);
+          }}
+          onConfirm={() => {
+            setModalVisible(!modalVisible);
+            setIsEdit(false);
+          }}
+          donation={donations}
+          isEdit={isEdit}
+          editedDonationId={editedDonationId}
+        />
       </View>
     </SafeAreaView>
   );
@@ -216,7 +230,7 @@ const styles = StyleSheet.create({
   placeholder: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 50,
   },
   placeholderText: {
     color: colors.danger,
@@ -229,13 +243,13 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     backgroundColor: colors.white,
   },
-  devicesContainer: {
+  donationsContainer: {
     flex: 1,
     width: '100%',
     borderRadius: 30,
     backgroundColor: colors.white,
   },
-  newDeviceContainer: {
+  newDonationContainer: {
     flex: 0,
     borderColor: colors.danger,
     borderWidth: 1,

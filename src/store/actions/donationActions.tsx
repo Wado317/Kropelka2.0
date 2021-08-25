@@ -97,7 +97,7 @@ export const editDonation = (
     try {
       let {donations} = store.getState().donation;
       if (!donations) {
-        throw Error('No devices');
+        throw Error('No donations');
       }
 
       const donationsIndex = donations.findIndex(

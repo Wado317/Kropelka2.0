@@ -41,21 +41,22 @@
   "changeLanguageScreen": {
     "header": "Wybierz język"
   },
-  "mainScreen": {
-    "devices": "Urządzenia",
-    "add" : "Dodaj +",
-    "device": "Urządzenie",
-    "room": "Pomieszczenie",
-    "enterDevice": "Wpisz nazwę urządzenia...",
-    "enterRoom": "Wpisz nazwę pomieszczenia...",
-    "modalHeader": "Dodaj nowe urządzenie!",
-    "confirm": "Potwierdź",
+  "homeScreen": {
+    "header": "Zapraszamy ponownie za:",
+    "days" : "dni",
+    "add": "Dodaj +",
+    "donation": "Data donacji",
+    "enterDonation": "Wpisz datę donacji...",
+    "enterRoom": "Enter room name...",
+    "modalHeader": "Donacja!",
+    "confirm": "Potwiedź",
     "cancel": "Anuluj",
-    "placeholder": "Dodaj swoje pierwsze urządzenie!",
-    "delete" : "Usuń urządzenie",
-    "confirmation": "Jesteś pewny/a?",
-    "yes": "Tak",
-    "editHeader": "Edycja urządzenia"
+    "placeholder": "Dodaj swoją pierwszą donację!",
+    "delete" : "Delete donation",
+    "confirmation": "Are you sure?",
+    "yes": "Yes",
+    "editHeader": "Edit donation",
+    "blood": "Krew:"
   },
   "userScreen": {
     "welcome": "Cześć Kamil!",

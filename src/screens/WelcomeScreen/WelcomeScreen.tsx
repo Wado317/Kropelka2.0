@@ -12,7 +12,7 @@ const WelcomeScreen = () => {
   const {t} = useTranslation();
 
   const goToLoginScreen = () => {
-    navigation.navigate(Routes.LoginScreen);
+    navigation.navigate(Routes.HomeScreen);
   };
 
   const goToRegisterScreen = () => {

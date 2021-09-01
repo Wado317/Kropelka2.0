@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {
   Modal,
@@ -8,12 +8,13 @@ import {
   View,
   TouchableWithoutFeedback,
   Keyboard,
-  Alert,
+  TouchableOpacity,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {colors} from '../../const/colors';
 import {editDonation} from '../../store/actions/donationActions';
-import {UniversalInput} from '../Inputs/Input';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import DateService from '../../services/DateService';
 
 interface Props {
   children: any;
@@ -25,33 +26,35 @@ const DismissKeyboard = ({children}: Props) => (
   </TouchableWithoutFeedback>
 );
 
-const EditModal = ({
-  visible,
-  onClose,
-  onConfirm,
-  isEdit,
-  editedDonationId,
-}: any) => {
+const EditModal = ({visible, onClose, onConfirm, editedDonationId}: any) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [date, setDate] = useState<string>('');
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const {t} = useTranslation();
   const dispatch = useDispatch();
-  const {donations} = useSelector((state: any) => state.donation);
+  const currentTimestamp = DateService.getCurrentTimestamp;
+  const [selectedDate, setSelectedDate] = useState(currentTimestamp);
+  const selectedDateString = useMemo(
+    () => DateService.formatTimestampToString(selectedDate),
+    [selectedDate],
+  );
 
-  useEffect(() => {
-    if (isEdit) {
-      const donation = donations.find(
-        (item: any) => item.id === editedDonationId,
-      );
-      setDate(donation.date);
-    }
-  }, [isEdit]);
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date: Date) => {
+    const timestamp = DateService.formatDateToTimestamp(date);
+    setSelectedDate(timestamp);
+
+    hideDatePicker();
+  };
 
   const submitEditHandler = (id: string) => {
-    if (date.trim() === '') {
-      return Alert.alert('Validation', 'Name is required!');
-    }
-    dispatch(editDonation(date, id, () => Keyboard.dismiss()));
+    dispatch(editDonation(selectedDateString, id, () => Keyboard.dismiss()));
   };
 
   return (
@@ -67,14 +70,18 @@ const EditModal = ({
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Text style={styles.modalText}>{t('homeScreen.editHeader')}</Text>
-              <View>
-                <UniversalInput
-                  placeholder={t('homeScreen.enterDonation')}
-                  label={t('homeScreen.donation')}
-                  onChangeText={val => setDate(val)}
-                  value={date}
-                />
-              </View>
+              <TouchableOpacity onPress={showDatePicker}>
+                <Text style={styles.chooseDate}>Zmień wybraną datę</Text>
+                <Text style={styles.pickedDate}>{selectedDateString}</Text>
+              </TouchableOpacity>
+              <DateTimePickerModal
+                isVisible={isDatePickerVisible}
+                mode="date"
+                onConfirm={handleConfirm}
+                onCancel={hideDatePicker}
+                minimumDate={new Date(1990, 0, 1)}
+                maximumDate={new Date(2050, 10, 20)}
+              />
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => submitEditHandler(editedDonationId)}
@@ -188,6 +195,19 @@ const styles = StyleSheet.create({
     textShadowColor: colors.black,
     textShadowOffset: {height: -1, width: 1},
     textShadowRadius: 1,
+  },
+  pickedDate: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.blue,
+    marginTop: 5,
+  },
+  chooseDate: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '500',
+    color: colors.blue,
   },
 });
 

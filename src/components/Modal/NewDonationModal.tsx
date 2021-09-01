@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {
   Modal,
@@ -9,12 +9,14 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  TouchableOpacity,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
 import {colors} from '../../const/colors';
 import {createDonation} from '../../store/actions/donationActions';
 import {AddButton} from '../Buttons/AddButton';
-import {UniversalInput} from '../Inputs/Input';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import DateService from '../../services/DateService';
 
 interface Props {
   children: any;
@@ -28,17 +30,36 @@ const DismissKeyboard = ({children}: Props) => (
 
 const NewDonationModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [date, setDate] = useState<string>('');
+  const currentTimestamp = DateService.getCurrentTimestamp;
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(currentTimestamp);
+  const selectedDateString = useMemo(
+    () => DateService.formatTimestampToString(selectedDate),
+    [selectedDate],
+  );
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date: Date) => {
+    const timestamp = DateService.formatDateToTimestamp(date);
+    setSelectedDate(timestamp);
+
+    hideDatePicker();
+  };
+
   const {t} = useTranslation();
   const dispatch = useDispatch();
 
   const submitHandler = () => {
-    if (date.trim() === '') {
-      return Alert.alert('Validation', 'Name is required!');
-    }
     dispatch(
       createDonation(
-        date,
+        selectedDateString,
         () => {
           Keyboard.dismiss();
         },
@@ -64,13 +85,18 @@ const NewDonationModal = () => {
               <Text style={styles.modalText}>
                 {t('homeScreen.modalHeader')}
               </Text>
-              <View>
-                <UniversalInput
-                  placeholder={t('homeScreen.enterDonation')}
-                  label={t('homeScreen.donation')}
-                  onChangeText={val => setDate(val)}
-                />
-              </View>
+              <TouchableOpacity onPress={showDatePicker}>
+                <Text style={styles.chooseDate}>Zmień wybraną datę</Text>
+                <Text style={styles.pickedDate}>{selectedDateString}</Text>
+              </TouchableOpacity>
+              <DateTimePickerModal
+                isVisible={isDatePickerVisible}
+                mode="date"
+                onConfirm={handleConfirm}
+                onCancel={hideDatePicker}
+                minimumDate={new Date(1990, 0, 1)}
+                maximumDate={new Date(2050, 10, 20)}
+              />
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={submitHandler}
@@ -188,6 +214,19 @@ const styles = StyleSheet.create({
     textShadowColor: colors.black,
     textShadowOffset: {height: -1, width: 1},
     textShadowRadius: 1,
+  },
+  pickedDate: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.blue,
+    marginTop: 5,
+  },
+  chooseDate: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '500',
+    color: colors.blue,
   },
 });
 
